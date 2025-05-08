@@ -1,0 +1,156 @@
+//lab1
+begin
+dbms_output.put_line('hai');
+dbms_output.put_line('welcome');
+dbms_output.put_line('pl/sql programs');
+end;
+//lab2
+declare
+a number;
+b number;
+c number;
+begin 
+a:=100;
+b:=200;
+c:=a+b;
+dbms_output.put_line('the sum of two integers is'||c);
+end;
+//lab3
+declare
+empno number;
+ename varchar(20);
+sal number(7,2);
+anu_sal number(10,2);
+bonus number(10,2);
+begin
+empno:=1234;
+ename:='ravi';
+sal:=18000;
+anu_sal:=sal*12;
+bonus:=anu_sal*20/100;
+dbms_output.put_line('empno:'||empno);
+dbms_output.put_line('ename:'||ename);
+dbms_output.put_line('sal:'||sal);
+dbms_output.put_line('bonus:'||bonus);
+end;
+
+//lab4
+declare
+prodno number;
+pname varchar(20);
+quan number(3);
+price number(7,2);
+total number(7,2);
+discount number(7,2);
+net number(7,2);
+begin
+prodno:=1234;
+pname:='choclates';
+quan:=10;
+price:=100;
+total:=quan*price;
+discount:=total*20/100;
+net:=total-discount;
+dbms_output.put_line('prodno:'||prodno);
+dbms_output.put_line('pname:'||pname);
+dbms_output.put_line('quantity'||quan);
+dbms_output.put_line('price'||price);
+dbms_output.put_line('total'||total);
+dbms_output.put_line('discount'||discout);
+dbms_output.put_line('netbalance'||net);
+end;
+//lab 6
+declare
+empno number;
+sal number(7,2);
+anu_sal number(7,2);
+bonus number(7,2);
+begin
+empno:=1234;
+sal:=8000;
+anu_sal:=sal*12;
+if sal>=10000then
+bonus:=anu_sal*20/100;
+elsif sal>=5000 and sal<10000 then
+bonus:=anu_sal*15/100;
+elsif sal>=3000 and sal<5000 then
+bonus:=anu*sal*12/100;
+elsif sal>=1500 and sal<3000 then
+bonus:=anu_sal*10/100;
+else
+bonus:=anu_sal*8/100;
+end if;
+dbms_output.put_line('empno'||empno);
+dbms_output.put_line('sal'||sal);
+dbms_output.put_line('anu_sal'||anu_sal);
+dbms_output.put_line('bonus'||bonus);
+end;
+
+//lab 7
+declare 
+i number;
+begin 
+dbms_output.put_line('the numbers is');
+for i in reverse 1..10 loop
+dbms_output.put_line(i);
+end loop;
+end;
+
+//lab 7
+create or replace procedure min(x in number,y in number,z out number)
+is
+begin
+if x<y then
+z:=x;
+else
+z:=y;
+end if ;
+end;
+
+declare 
+a number;
+b number;
+c number;
+begin
+a:=125;
+b:=40;
+min(a,b,c)
+dbms_output.put_line(c);
+end;
+
+//lab 8
+create or replace procedure square(x in out number)
+is 
+begin
+x:=x*x;
+end;
+
+declare
+a number;
+begin
+a:=10;
+square(a);
+dbms_output.put_line('sqaue of 10 is:'||a);
+end;
+
+
+//lab 9
+declare
+cursor ec is select empno,esal from megha;
+v_ec ec%ROWTYPE;
+ann_sal number(10,2);
+b bonus1%ROWTYPE;
+begin
+open ec;
+loop
+fetch ec into v_ec;
+exit when ec%notfound;
+ann_sal:=v_ec.esal*12;
+b.bonus_amt:=ann_sal*0.2;
+insert into bonus values(v_ec.empno,b.bonus_amt,1000,sysdate);
+end loop ;
+close ec;
+end;
+
+
+
