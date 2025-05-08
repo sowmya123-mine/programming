@@ -1,0 +1,70 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+ <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<style>
+</style>
+<script>
+function meghana()
+{
+if(document.getElementById("meg").value>8)
+{
+window.alert("atleast 8 characters one will be @");
+}
+else
+{
+window.alert("proceed");
+}
+}
+function submit()
+{
+window.alert("successfully completed");
+}
+function reset()
+{
+document.getElementById("res").value=" ";
+}
+function sai()
+{
+var password;
+password=document.getElementById("sam").value;
+if(password=="")
+{
+window.alert("fill the form please");
+}
+if(password.length<8)
+{
+window.alert("password length must conatin eight charcaters");
+}
+if(password.length>15)
+{
+window.alert("password length does not exceed 15 charcters");
+}
+else
+{
+window.alert("password is correct")
+}
+}
+</script>
+<title>LOGIN</title>
+</head>
+<body style="background:linear-gradient(to top,green,pink,green)">
+<center>
+<img src="ai.jpeg" width="100px" height="100px">
+</center>
+<h1 align="center" style="color:blue">LOGIN FORM</h1><br>
+<form action="/contact" method="post">
+<center>
+<h2 style="color:yellow">Name:<input type="text" id="meg" id="name" placeholder="enter your name"><br>
+<h2 style="color:yellow">&nbsp &nbsp Password:<input type="password" id= "sam" name="password" placeholder="enter your password"><br>
+<button type="button" onclick="sai()">verification</button><br><br>
+<button type="button" onclick="submit()">submit</button>&nbsp &nbsp
+<button type="button" onclick="reset()">reset</button>
+<p id="res"></p>
+</center>
+</form>
+ <py-script>  
+   print("Hello World!")
+</py-script>
+</body>
+</html>
